@@ -1,0 +1,47 @@
+Warning: express.createServer() is deprecated, express
+applications no longer inherit from http.Server,
+please use:
+
+  var express = require("express");
+  var app = express();
+
+connect.multipart() will be removed in connect 3.0
+visit https://github.com/senchalabs/connect/wiki/Connect-3.0 for alternatives
+connect.limit() will be removed in connect 3.0
+========================================================================================
+=  Please ensure that you set the default write concern for the database by setting    =
+=   one of the options                                                                 =
+=                                                                                      =
+=     w: (value of > -1 or the string 'majority'), where < 1 means                     =
+=        no write acknowledgement                                                       =
+=     journal: true/false, wait for flush to journal before acknowledgement             =
+=     fsync: true/false, wait for flush to file system before acknowledgement           =
+=                                                                                      =
+=  For backward compatibility safe is still supported and                              =
+=   allows values of [true | false | {j:true} | {w:n, wtimeout:n} | {fsync:true}]      =
+=   the default value is false which means the driver receives does not                =
+=   return the information of the success/error of the insert/update/remove            =
+=                                                                                      =
+=   ex: new Db(new Server('localhost', 27017), {safe:false})                           =
+=                                                                                      =
+=   http://www.mongodb.org/display/DOCS/getLastError+Command                           =
+=                                                                                      =
+=  The default of no acknowledgement will change in the very near future                =
+=                                                                                      =
+=  This message will disappear when the default safe is set on the driver Db           =
+========================================================================================
+
+/root/concepts-json/node_modules/mongodb-rest/lib/rest.js:37
+    db.authenticate(config.db.username, config.db.password, function () {
+       ^
+TypeError: Cannot call method 'authenticate' of null
+    at /root/concepts-json/node_modules/mongodb-rest/lib/rest.js:37:8
+    at /root/concepts-json/node_modules/mongodb-rest/node_modules/mongodb/lib/mongodb/db.js:273:18
+    at /root/concepts-json/node_modules/mongodb-rest/node_modules/mongodb/lib/mongodb/db.js:351:18
+    at Server.close (/root/concepts-json/node_modules/mongodb-rest/node_modules/mongodb/lib/mongodb/connection/server.js:210:38)
+    at Db.close (/root/concepts-json/node_modules/mongodb-rest/node_modules/mongodb/lib/mongodb/db.js:347:21)
+    at /root/concepts-json/node_modules/mongodb-rest/node_modules/mongodb/lib/mongodb/db.js:271:21
+    at null.<anonymous> (/root/concepts-json/node_modules/mongodb-rest/node_modules/mongodb/lib/mongodb/connection/server.js:563:7)
+    at EventEmitter.emit (events.js:106:17)
+    at null.<anonymous> (/root/concepts-json/node_modules/mongodb-rest/node_modules/mongodb/lib/mongodb/connection/connection_pool.js:140:15)
+    at EventEmitter.emit (events.js:98:17)
